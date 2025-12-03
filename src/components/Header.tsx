@@ -6,7 +6,7 @@ export default function Header() {
             <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between">
                     <div className="flex-shrink-0">
-                        <a href="#" title="" className="flex rounded outline-none focus:ring-1 focus:ring-gray-900 focus:ring-offset-2">
+                        <a href="/" title="" className="flex rounded outline-none focus:ring-1 focus:ring-gray-900 focus:ring-offset-2">
                             <span className="text-2xl font-bold text-gray-900 dark:text-white font-pj">BaseMint</span>
                         </a>
                     </div>
@@ -22,7 +22,7 @@ export default function Header() {
 
                     <div className="hidden lg:flex lg:ml-16 lg:items-center lg:justify-center lg:space-x-10">
                         <div className="flex items-center space-x-12">
-                            <a href="#" title="" className="text-base font-medium text-gray-900 dark:text-gray-100 transition-all duration-200 rounded focus:outline-none font-pj hover:text-opacity-50 focus:ring-1 focus:ring-gray-900 focus:ring-offset-2"> Practice </a>
+                            <a href="/practice" title="" className="text-base font-medium text-gray-900 dark:text-gray-100 transition-all duration-200 rounded focus:outline-none font-pj hover:text-opacity-50 focus:ring-1 focus:ring-gray-900 focus:ring-offset-2"> Practice </a>
 
                             <a href="#" title="" className="text-base font-medium text-gray-900 dark:text-gray-100 transition-all duration-200 rounded focus:outline-none font-pj hover:text-opacity-50 focus:ring-1 focus:ring-gray-900 focus:ring-offset-2"> Leaderboard </a>
 
