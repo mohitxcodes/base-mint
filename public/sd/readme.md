@@ -2,7 +2,7 @@
 
 This document outlines the high-level system architecture for the Base Mint platform, illustrating the flow of data and interactions between various components.
 
-![System Architecture](./architecture.png)
+![System Architecture](./images/architecture.png)
 
 ## Architecture Overview
 
