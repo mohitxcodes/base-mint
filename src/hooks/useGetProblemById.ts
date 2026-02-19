@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { getProblemById } from "@/apis/problems-api";
+import { getProblemById } from "@/apis/problemsApi";
 
 export const useGetProblemById = (id: string) => {
   return useQuery({

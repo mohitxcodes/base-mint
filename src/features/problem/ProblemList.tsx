@@ -2,8 +2,6 @@
 import QuestionRow from "./ProblemRow";
 import { useGetProblemsByTopic } from "@/hooks/useGetProblemsByTopic";
 
-
-
 export default function ProblemList({ topicName }: { topicName: string }) {
 
     const { data } = useGetProblemsByTopic(topicName);

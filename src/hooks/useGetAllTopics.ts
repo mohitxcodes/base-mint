@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { getAllTopics } from "@/apis/topics-api";
+import { getAllTopics } from "@/apis/topicsApi";
 
 export const useGetAllTopics = () => {
   return useQuery({

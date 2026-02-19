@@ -5,19 +5,11 @@ export interface TestCase {
   comparison?: "exact" | "contains";
 }
 
-export interface Question {
-  id: number;
-  title: string;
-  difficulty: "Easy" | "Medium" | "Hard";
-  points: number;
-  isCompleted: boolean;
-  description: string; // HTML or Markdown string if needed, currently plain text in existing code
-  inputFormat?: string[];
-  outputFormat?: string[];
-  constraints?: string[];
-  testCases: TestCase[];
-  tips?: string[];
-  tags?: string[];
+export interface ISubmission {
+  problemId: string;
+  userId: string;
+  language: string;
+  code: string;
 }
 
 export type Language = "java" | "cpp";

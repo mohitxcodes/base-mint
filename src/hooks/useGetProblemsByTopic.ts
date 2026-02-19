@@ -1,4 +1,4 @@
-import { getProblemByTopic } from "@/apis/problems-api";
+import { getProblemByTopic } from "@/apis/problemsApi";
 import { useQuery } from "@tanstack/react-query";
 
 export const useGetProblemsByTopic = (topic: string) => {

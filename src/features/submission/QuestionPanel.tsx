@@ -1,13 +1,11 @@
 import { Link } from "react-router-dom";
-import type { Question } from "../../types/submission";
+import type { IProblem } from "@/types/problems";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Badge } from "@/components/ui/badge";
 
-interface QuestionPanelProps {
-    question: Question;
-}
 
-export default function QuestionPanel({ question }: QuestionPanelProps) {
+export default function QuestionPanel({ question }: { question: IProblem }) {
+    console.log(question);
     return (
         <ScrollArea className="h-full">
             <div className="p-6 space-y-8">
@@ -22,11 +20,9 @@ export default function QuestionPanel({ question }: QuestionPanelProps) {
                     <div>
                         <h1 className="text-2xl font-bold text-(--text-primary) font-pj">{question.title}</h1>
                         <div className="flex flex-wrap gap-2 mt-3">
-                            <Badge variant={question.difficulty === 'Easy' ? 'secondary' : question.difficulty === 'Medium' ? 'default' : 'destructive'}>
+                            <Badge variant={question.difficulty === 'EASY' ? 'secondary' : question.difficulty === 'MEDIUM' ? 'default' : 'destructive'}>
                                 {question.difficulty}
                             </Badge>
-                            <Badge variant="outline">{question.points} pts</Badge>
-                            <Badge variant="outline">{question.isCompleted ? "Completed" : "Pending"}</Badge>
                         </div>
                     </div>
                 </div>
@@ -37,14 +33,13 @@ export default function QuestionPanel({ question }: QuestionPanelProps) {
                     <div className="text-(--text-secondary) leading-relaxed">
                         {/* Replace with actual description if available, currently using placeholder text from original file */}
                         <p>
-                            Given an integer <code>n</code>, determine the result requested in the prompt. Make sure to handle edge cases such as negative values,
-                            zero, and very large inputs while maintaining optimal time and space complexity.
+                            {question.description}
                         </p>
                     </div>
                 </section>
 
                 {/* Input/Output Format */}
-                <section className="space-y-4">
+                {/* <section className="space-y-4">
                     <h3 className="text-base font-semibold text-(--text-primary)">Input Format</h3>
                     <ul className="list-disc list-inside space-y-1 text-(--text-secondary)">
                         {question.inputFormat?.map((item, index) => (
@@ -56,9 +51,9 @@ export default function QuestionPanel({ question }: QuestionPanelProps) {
                                 </>
                             )}
                     </ul>
-                </section>
+                </section> */}
 
-                <section className="space-y-4">
+                {/* <section className="space-y-4">
                     <h3 className="text-base font-semibold text-(--text-primary)">Output Format</h3>
                     <ul className="list-disc list-inside space-y-1 text-(--text-secondary)">
                         {question.outputFormat?.map((item, index) => (
@@ -70,10 +65,10 @@ export default function QuestionPanel({ question }: QuestionPanelProps) {
                                 </>
                             )}
                     </ul>
-                </section>
+                </section> */}
 
                 {/* Constraints */}
-                <section className="space-y-4">
+                {/* <section className="space-y-4">
                     <h3 className="text-base font-semibold text-(--text-primary)">Constraints</h3>
                     <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-(--text-secondary)">
                         {question.constraints?.map((item, index) => (
@@ -86,7 +81,7 @@ export default function QuestionPanel({ question }: QuestionPanelProps) {
                                 </>
                             )}
                     </ul>
-                </section>
+                </section> */}
 
                 {/* Examples */}
                 <section className="space-y-6">
