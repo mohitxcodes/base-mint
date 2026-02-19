@@ -1,5 +1,6 @@
 
-import QuestionRow from "./QuestionRow";
+import useProblems from "@/hooks/useProblems";
+import QuestionRow from "./ProblemRow";
 
 interface ProblemListProps {
     topic: {
@@ -10,6 +11,9 @@ interface ProblemListProps {
 }
 
 export default function ProblemList({ topic }: ProblemListProps) {
+
+    const { data: problems } = useProblems();
+
     return (
         <div className="space-y-6">
             <div className="pb-4 border-b border-(--border-primary)">
@@ -22,7 +26,7 @@ export default function ProblemList({ topic }: ProblemListProps) {
                      but keeping it simple as per "professional" request often implies clean lists. 
                      The QuestionRow itself provides the row structure. 
                  */}
-                {topic.questions.map((question: any) => (
+                {problems?.map((question: any, idx: number) => (
                     <QuestionRow key={question.id} {...question} />
                 ))}
             </div>
