@@ -2,9 +2,23 @@ import { Link } from "react-router-dom";
 
 const HeroSection = () => {
     return (
-        <div className="relative bg-(--bg-secondary) transition-colors duration-200">
-            <div className="absolute bottom-0 right-0 overflow-hidden lg:inset-y-0">
-                <img className="w-auto h-full opacity-(--pattern-opacity) transition-opacity duration-200" src="https://d33wubrfki0l68.cloudfront.net/1e0fc04f38f5896d10ff66824a62e466839567f8/699b5/images/hero/3/background-pattern.png" alt="" />
+        <div className="relative bg-(--bg-secondary) transition-colors duration-200"
+            style={{ ["--dk-bg" as string]: "1" }}>
+            {/* Pattern only in light mode */}
+            <div className="absolute bottom-0 right-0 overflow-hidden lg:inset-y-0 dark:hidden">
+                <img className="w-auto h-full opacity-(--pattern-opacity)" src="https://d33wubrfki0l68.cloudfront.net/1e0fc04f38f5896d10ff66824a62e466839567f8/699b5/images/hero/3/background-pattern.png" alt="" />
+            </div>
+
+            {/* Dark mode gradient background */}
+            <div className="absolute inset-0 hidden dark:block transition-colors duration-200"
+                style={{ background: `linear-gradient(to bottom right, var(--dk-bg-from), var(--dk-bg-via), var(--dk-bg-to))` }} />
+
+            {/* Dark mode blobs */}
+            <div className="absolute inset-0 pointer-events-none overflow-hidden hidden dark:block">
+                <div className="absolute -top-32 -left-32 w-[500px] h-[500px] rounded-full blur-3xl"
+                    style={{ background: "var(--dk-blob-a)" }} />
+                <div className="absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full blur-3xl"
+                    style={{ background: "var(--dk-blob-b)" }} />
             </div>
 
             <section className="relative py-12 sm:py-16 lg:pt-20 lg:pb-36">
@@ -12,9 +26,11 @@ const HeroSection = () => {
                     <div className="grid grid-cols-1 gap-y-8 lg:items-center lg:grid-cols-2 sm:gap-y-20 xl:grid-cols-5">
                         <div className="text-center xl:col-span-2 lg:text-left md:px-16 lg:px-0">
                             <div className="max-w-sm mx-auto sm:max-w-md md:max-w-full">
-                                <h1 className="text-4xl font-bold leading-tight text-(--text-primary) sm:text-5xl sm:leading-tight lg:text-6xl lg:leading-tight font-pj">Master Programming Fundamentals</h1>
+                                <h1 className="text-4xl font-bold leading-tight text-(--text-primary) sm:text-5xl sm:leading-tight lg:text-6xl lg:leading-tight font-pj dark:text-(--dk-text)">
+                                    Master Programming Fundamentals
+                                </h1>
 
-                                <p className="mt-5 text-base text-(--text-secondary) sm:text-lg font-pj">
+                                <p className="mt-5 text-base text-(--text-secondary) sm:text-lg font-pj dark:text-(--dk-text-muted)">
                                     Practice essential coding concepts like loops, if-else, and functions. Compete for ranks and unlock achievements in a gamified environment.
                                 </p>
 
@@ -25,48 +41,53 @@ const HeroSection = () => {
                                         <img className="inline-block rounded-full w-14 h-14 ring-2 ring-(--avatar-ring)" src="https://d33wubrfki0l68.cloudfront.net/8a2efb13f103a5ae2909e244380d73087a9c2fc4/31ed6/images/hero/3/avatar-female-2.png" alt="" />
                                     </div>
 
-                                    <p className="mt-4 text-lg text-(--text-primary) lg:mt-0 lg:ml-4 font-pj">Join with <span className="font-bold">4600+ Developers</span> and start practicing today</p>
+                                    <p className="mt-4 text-lg text-(--text-primary) lg:mt-0 lg:ml-4 font-pj dark:text-(--dk-text)">
+                                        Join with <span className="font-bold">4600+ Developers</span> and start practicing today
+                                    </p>
                                 </div>
                             </div>
 
                             <div className="mt-8 sm:flex sm:items-center sm:justify-center lg:justify-start sm:space-x-5 lg:mt-12">
+                                {/* Primary CTA */}
                                 <Link
                                     to="/problems"
                                     title=""
-                                    className="inline-flex items-center px-8 py-4 text-lg font-bold text-(--btn-primary-text) transition-all duration-200 bg-(--btn-primary-bg) border border-transparent rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-(--btn-primary-ring) font-pj justif-center hover:bg-(--btn-primary-hover)"
+                                    className="inline-flex items-center px-8 py-4 text-lg font-bold transition-all duration-200
+                                               text-(--btn-primary-text) bg-(--btn-primary-bg)
+                                               border border-transparent rounded-xl font-pj justify-center
+                                               focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-(--btn-primary-ring)
+                                               hover:bg-(--btn-primary-hover)"
+                                    style={{
+                                        color: undefined,
+                                        background: undefined,
+                                    }}
+                                    data-dk="primary-cta"
                                     role="button"
                                 >
-                                    Start Coding
+                                    <span className="dark:hidden">Start Coding</span>
+                                    <span className="hidden dark:inline"
+                                        style={{ color: "var(--dk-btn-text)" }}>
+                                        Start Coding
+                                    </span>
                                 </Link>
 
+                                {/* Secondary CTA */}
                                 <a
                                     href="#"
                                     title=""
-                                    className="
-                                inline-flex
-                                items-center
-                                px-4
-                                py-4
-                                mt-4
-                                text-lg
-                                font-bold
-                                transition-all
-                                duration-200
-                                bg-transparent
-                                border border-transparent
-                                sm:mt-0
-                                font-pj
-                                justif-center
-                                rounded-xl
-                                focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-(--btn-secondary-ring)
-                                hover:bg-(--btn-secondary-hover-bg)
-                                focus:bg-(--btn-secondary-hover-bg)
-                                text-(--text-primary)
-                            "
+                                    className="inline-flex items-center px-4 py-4 mt-4 text-lg font-bold transition-all duration-200
+                                               bg-transparent border border-transparent sm:mt-0 font-pj justify-center rounded-xl
+                                               focus:outline-none focus:ring-2 focus:ring-offset-2
+                                               focus:ring-(--btn-secondary-ring)
+                                               hover:bg-(--btn-secondary-hover-bg)
+                                               focus:bg-(--btn-secondary-hover-bg)
+                                               text-(--text-primary)
+                                               dark:[color:var(--dk-text-dim)]
+                                               dark:[--hover-bg:var(--dk-surface-hover)]"
                                     role="button"
                                 >
                                     <svg className="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                                     </svg>
                                     View Challenges
                                 </a>
@@ -80,7 +101,6 @@ const HeroSection = () => {
                 </div>
             </section>
         </div>
-
     )
 }
 export default HeroSection;

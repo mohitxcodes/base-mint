@@ -15,7 +15,6 @@
 }
 
 @theme inline {
-
   --radius-sm: calc(var(--radius) - 4px);
 
   --radius-md: calc(var(--radius) - 2px);
@@ -94,7 +93,6 @@
 }
 
 :root {
-
   --radius: 0.625rem;
 
   --background: oklch(1 0 0);
@@ -161,7 +159,6 @@
 }
 
 .dark {
-
   --background: oklch(0.145 0 0);
 
   --foreground: oklch(0.985 0 0);
@@ -232,4 +229,46 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* ── Dark Page Theme Variables ─────────────────────────────────────────────
+   Used by LoginPage, HeroSection, Header in dark mode.
+   Naming: --dk-* (dark-kit)
+──────────────────────────────────────────────────────────────────────────── */
+:root {
+  /* Gradient stops — warm charcoal/slate, less dark than before */
+  --dk-bg-from: #27272a; /* zinc-800   */
+  --dk-bg-via: #1e1e21; /* zinc-850 ish */
+  --dk-bg-to: #111113; /* near-black  */
+
+  /* Blob / glow accents */
+  --dk-blob-a: rgb(82 82 91 / 0.3); /* zinc-600/30  */
+  --dk-blob-b: rgb(100 100 100 / 0.2); /* neutral-500/20 */
+
+  /* Text hierarchy */
+  --dk-text: rgba(255, 255, 255, 1); /* white        */
+  --dk-text-muted: rgba(255, 255, 255, 0.5); /* white/50     */
+  --dk-text-faint: rgba(255, 255, 255, 0.3); /* white/30     */
+  --dk-text-dim: rgba(255, 255, 255, 0.8); /* white/80 — nav links */
+
+  /* Borders & dividers */
+  --dk-border: rgba(255, 255, 255, 0.08); /* white/8  */
+  --dk-border-muted: rgba(255, 255, 255, 0.1); /* white/10 */
+  --dk-border-light: rgba(255, 255, 255, 0.15); /* white/15 */
+
+  /* Surfaces (inputs, ghost buttons) */
+  --dk-surface: rgba(255, 255, 255, 0.06); /* white/6  */
+  --dk-surface-hover: rgba(255, 255, 255, 0.12); /* white/12 */
+
+  /* CTA button */
+  --dk-btn-bg: #ffffff; /* solid white */
+  --dk-btn-text: #09090b; /* zinc-950    */
+  --dk-btn-hover: rgba(255, 255, 255, 0.9);
+}
+
+/* .dark overrides */
+.dark {
+  --dk-bg-from: #27272a; /* zinc-800   */
+  --dk-bg-via: #18181b; /* zinc-900   */
+  --dk-bg-to: #111113;
 }

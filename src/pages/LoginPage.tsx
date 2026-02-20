@@ -1,22 +1,54 @@
-
 import Login from "../features/auth/Login";
+import AuthPanel from "../components/common/AuthPanel";
 import { Link } from "react-router-dom";
 
 export default function LoginPage() {
     return (
-        <div className="relative min-h-full flex flex-col justify-center items-center bg-(--bg-primary) p-4 overflow-hidden">
-            <div className="absolute top-0 inset-x-0 h-64 bg-linear-gradient-to-b from-(--bg-tertiary) to-transparent dark:from-(--bg-tertiary)/20 pointer-events-none"></div>
+        <div className="w-full h-screen flex overflow-hidden font-sans relative
+                        bg-(--bg-secondary) text-(--text-primary) transition-colors duration-200">
 
-            {/* Logo or Brand - Optional */}
-            <div className="mb-8 relative z-10 text-center">
-                <Link to="/" className="inline-flex items-center gap-2">
-                    <span className="text-3xl font-bold text-(--text-primary) font-pj">BaseMint</span>
-                </Link>
-            </div>
+            {/* Dark mode gradient overlay */}
+            <div className="absolute inset-0 hidden dark:block pointer-events-none"
+                style={{ background: `linear-gradient(to bottom right, var(--dk-bg-from), var(--dk-bg-via), var(--dk-bg-to))` }} />
 
-            <div className="relative z-10 w-full max-w-sm">
-                <Login />
+            {/* ── Left Panel (shared) ── */}
+            <AuthPanel />
+
+            {/* ── Right Column ── */}
+            <div className="w-full lg:w-1/2 flex flex-col justify-center items-center p-8 relative overflow-hidden z-10">
+
+                {/* Dark mode blob */}
+                <div className="absolute inset-0 pointer-events-none overflow-hidden hidden dark:block">
+                    <div className="absolute -bottom-32 -right-32 w-[400px] h-[400px] rounded-full blur-3xl"
+                        style={{ background: "var(--dk-blob-a)" }} />
+                </div>
+
+                <div className="w-full max-w-md space-y-8 z-10">
+                    {/* Mobile brand */}
+                    <div className="lg:hidden text-center">
+                        <Link to="/" className="text-3xl font-extrabold text-(--text-primary) dark:text-(--dk-text)">
+                            ByteBox
+                        </Link>
+                    </div>
+
+                    <Login />
+
+                    <p className="text-center text-xs text-(--text-secondary) dark:text-(--dk-text-faint)">
+                        By continuing, you agree to our{" "}
+                        <Link to="/terms"
+                            className="underline underline-offset-4 hover:opacity-80 transition-opacity
+                                         text-(--text-primary) dark:text-(--dk-text-muted)">
+                            Terms of Service
+                        </Link>{" "}
+                        and{" "}
+                        <Link to="/privacy"
+                            className="underline underline-offset-4 hover:opacity-80 transition-opacity
+                                         text-(--text-primary) dark:text-(--dk-text-muted)">
+                            Privacy Policy
+                        </Link>.
+                    </p>
+                </div>
             </div>
         </div>
-    )
+    );
 }

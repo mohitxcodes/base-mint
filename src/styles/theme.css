@@ -81,4 +81,23 @@
   /* Status: Info (Updates) */
   --status-info-bg: rgba(37, 99, 235, 0.3); /* blue-900/30 */
   --status-info-text: #60a5fa; /* blue-400 */
+
+  /* ── Dark Kit (--dk-*): charcoal gradient used by full-page dark layouts ── */
+  --dk-bg-from: #27272a; /* zinc-800   */
+  --dk-bg-via: #1e1e21; /* zinc-850   */
+  --dk-bg-to: #111113; /* near-black */
+  --dk-blob-a: rgb(82 82 91 / 0.3); /* zinc-600/30  */
+  --dk-blob-b: rgb(100 100 100 / 0.2); /* neutral-500/20 */
+  --dk-text: rgba(255, 255, 255, 1);
+  --dk-text-muted: rgba(255, 255, 255, 0.5);
+  --dk-text-faint: rgba(255, 255, 255, 0.3);
+  --dk-text-dim: rgba(255, 255, 255, 0.8);
+  --dk-border: rgba(255, 255, 255, 0.08);
+  --dk-border-muted: rgba(255, 255, 255, 0.1);
+  --dk-border-light: rgba(255, 255, 255, 0.15);
+  --dk-surface: rgba(255, 255, 255, 0.06);
+  --dk-surface-hover: rgba(255, 255, 255, 0.12);
+  --dk-btn-bg: #ffffff;
+  --dk-btn-text: #09090b;
+  --dk-btn-hover: rgba(255, 255, 255, 0.9);
 }
